@@ -41,8 +41,15 @@ if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
 
 // Ensure DB connects for every serverless invocation
 app.use(async (req, res, next) => {
-    await connectDB();
-    next();
+    try {
+        await connectDB();
+        next();
+    } catch (err) {
+        console.error('Database middleware error:', err);
+        res.status(503).json({ 
+            message: 'Database connection failed. Please ensure MONGO_URI is correct and IP 0.0.0.0/0 is whitelisted in Atlas.' 
+        });
+    }
 });
 
 module.exports = app;
