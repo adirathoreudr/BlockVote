@@ -1,0 +1,20 @@
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_141.node'
+Require stack:
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/dist/node/core.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/truffle/build/migrate.bundled.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/original-require/index.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/truffle/build/cli.bundled.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+> Something went wrong while attempting to connect to the network at http://127.0.0.1:8545. Check your network configuration.
+CONNECTION ERROR: Couldn't connect to node http://127.0.0.1:8545.
+Truffle v5.11.5 (core: 5.11.5)
+Node v25.9.0

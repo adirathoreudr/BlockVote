@@ -10,12 +10,15 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Mocked endpoint for local development
-      // const res = await axios.post('http://localhost:5000/api/auth/login', { email, password });
-      // localStorage.setItem('token', res.data.token);
+      // Portable API endpoint for both local and Vercel environments
+      const res = await axios.post('/api/auth/login', { email, password });
+      if (res.data.token) {
+        localStorage.setItem('token', res.data.token);
+      }
       navigate('/dashboard');
     } catch (err) {
-      alert('Login failed. Ensure backend is running and credentials are valid.');
+      console.error(err);
+      alert('Login failed. Please check your credentials or if the server is running.');
     }
   };
 

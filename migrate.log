@@ -1,0 +1,53 @@
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_141.node'
+Require stack:
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/dist/node/core.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/truffle/build/migrate.bundled.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/original-require/index.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/truffle/build/cli.bundled.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+Starting migrations...
+======================
+> Network name:    'development'
+> Network id:      1776448820739
+> Block gas limit: 30000000 (0x1c9c380)
+
+
+1_deploy_contracts.js
+=====================
+
+   Deploying 'BlockVote'
+   ---------------------
+   > transaction hash:    0x88372b0f75617a0bbbe7f351c7d53a7c8c24349a738b9f140e73bf6a6ed896f5
+- Blocks: 0            Seconds: 0
+   > Blocks: 0            Seconds: 0
+   > contract address:    0xB2d0434CE90d0A015a396Bb336D5C1cc98FF16af
+   > block number:        1
+   > block timestamp:     1776448828
+   > account:             0x5e41BCcE14F65E26AE7A0B41382cec107D2a0eEf
+   > balance:             999.997224970375
+   > gas used:            822231 (0xc8bd7)
+   > gas price:           3.375 gwei
+   > value sent:          0 ETH
+   > total cost:          0.002775029625 ETH
+
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:      0.002775029625 ETH
+
+Summary
+=======
+> Total deployments:   1
+> Final cost:          0.002775029625 ETH
+
+

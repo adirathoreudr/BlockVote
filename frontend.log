@@ -1,0 +1,10 @@
+
+> blockvote-frontend@0.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 1202 ms
+
+  ➜  Local:   http://localhost:11:41:52 PM [vite] hmr update /src/components/Dashboard.jsx
+12:04:20 AM [vite] hmr update /src/components/Login.jsx

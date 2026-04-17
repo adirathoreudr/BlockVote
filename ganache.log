@@ -1,0 +1,61 @@
+This version of µWS is not compatible with your Node.js build:
+
+Error: Cannot find module '../binaries/uws_darwin_arm64_141.node'
+Require stack:
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/node_modules/@trufflesuite/uws-js-unofficial/src/uws.js
+- /Users/adirathoresmacair/Desktop/Projects_Per/blockvote/truffle-contracts/node_modules/ganache/dist/node/cli.js
+Falling back to a NodeJS implementation; performance may be degraded.
+
+
+ganache v7.9.1 (@ganache/cli: 0.10.1, @ganache/core: 0.10.1)
+Starting RPC server
+
+Available Accounts
+==================
+(0) 0x5e41BCcE14F65E26AE7A0B41382cec107D2a0eEf (1000 ETH)
+(1) 0x6866C04B22d4F599E7D2656afe85340029cF9A8b (1000 ETH)
+(2) 0xC26530EC3D393541A18cE451ee4B75C992C54ABF (1000 ETH)
+(3) 0x13b48c8aFAbf9075b11E55dB98b7657Ad6586BfA (1000 ETH)
+(4) 0x13ffdD14E42bFaC30A6060492559ed11abe4dE3A (1000 ETH)
+(5) 0x5fA7865F464aFb128C0200B126649B1036Bc76F3 (1000 ETH)
+(6) 0x2B82dD52FdCe7b3cFcc67889e71eEAac8FfCA8A4 (1000 ETH)
+(7) 0xD63d17b99FA264053cCadE54FAC04BBeA263A30a (1000 ETH)
+(8) 0x270244d5CE235e068e20c60df61e1B355972be82 (1000 ETH)
+(9) 0xF3d4F9BcF246bFF0dD1Ec6E3F4462C91DC63f5Cb (1000 ETH)
+
+Private Keys
+==================
+(0) 0x05f1cb852f5be9d2ae0e0993cd1bbd3b7b190c174fca95489cc9e38e24f2933c
+(1) 0x883e89a20f097440943411de0aa24d5411711938c92d52d3704ebb9c8e0e7656
+(2) 0x16875ef80a41ff9055d951e22e509ddfc1dfdbfee4dc7009a552173b9a1d575b
+(3) 0x813c84cc6cb52879c8e60c3e4fc2b6c6b60d6e56bb484a0698e16cbaa819469a
+(4) 0x11d2ff1146e9b9cf5a2009bda6ee177af12ad9ce9ab4f8e4eead651b0db83250
+(5) 0xe9d0d039c6b1a07b65d43c374bbcd997d5bb9a4d4ac542d02cded0ffbe039db6
+(6) 0x466fb6dba528f05df9a78707c00955ea31c81ff695de3d1d555f0adcb1ba0fa2
+(7) 0x576355c1364c1de9f318155708f9d418fd3772a0c15788d49c329c475ab6b949
+(8) 0xba25f64b262da516d3c6e9f0703ba882cf01f18b09f549448007a7dbcaa85d3a
+(9) 0x544b1a520c737c4c9456b4d7f6f1c05bc2c29c8dd97f3e44cffdf63edd2245ea
+
+HD Wallet
+==================
+Mnemonic:      wet very sand race sibling artwork nasty motion oak whisper cabbage spring
+Base HD Path:  m/44'/60'/0'/0/{account_index}
+
+Default Gas Price
+==================
+2000000000
+
+BlockGas Limit
+==================
+30000000
+
+Call Gas Limit
+==================
+50000000
+
+Chain
+==================
+Hardfork: shanghai
+Id:       1337
+
+RPC Listening on 127.0.0.1:8545

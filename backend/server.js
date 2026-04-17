@@ -18,16 +18,32 @@ app.get('/api/health', (req, res) => {
     res.status(200).json({ status: 'OK', message: 'BlockVote Backend is running.' });
 });
 
-const PORT = process.env.PORT || 5000;
-
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/blockvote')
-    .then(() => {
+// Database connection logic for serverless
+const connectDB = async () => {
+    if (mongoose.connection.readyState >= 1) return;
+    try {
+        await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/blockvote');
         console.log('MongoDB connected successfully');
-        app.listen(PORT, () => {
-            console.log(`Server running on port ${PORT}`);
-        });
-    })
-    .catch((err) => {
+    } catch (err) {
         console.error('Database connection error:', err);
+    }
+};
+
+// Start server locally if not in Vercel environment
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+    const PORT = process.env.PORT || 5000;
+    connectDB().then(() => {
+        app.listen(PORT, () => {
+            console.log(`Local Server running on port ${PORT}`);
+        });
     });
+}
+
+// Ensure DB connects for every serverless invocation
+app.use(async (req, res, next) => {
+    await connectDB();
+    next();
+});
+
+module.exports = app;
+
