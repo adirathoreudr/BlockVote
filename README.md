@@ -72,6 +72,25 @@ npm install
 npm run dev
 ```
 
+## 🦊 MetaMask Setup
+
+To interact with the blockchain and cast your vote, follow these steps:
+
+1.  **Install MetaMask:** Add the [MetaMask extension](https://metamask.io/) to your browser.
+2.  **Connect to Local Network:** 
+    - Open MetaMask and click the **Network Selector** (top left).
+    - Select **"Add Network"** -> **"Add a network manually"**.
+    - Enter the following details:
+      - **Network Name:** BlockVote Local
+      - **New RPC URL:** `http://127.0.0.1:8545`
+      - **Chain ID:** `1337` (or the ID shown in your Ganache console)
+      - **Currency Symbol:** ETH
+3.  **Import Account:** 
+    - Copy a **Private Key** from your Ganache console.
+    - In MetaMask, click your profile icon -> **"Import Account"**.
+    - Paste the Private Key to access your test ETH.
+4.  **Connect on Dashboard:** Once logged into BlockVote, click the **"Connect Wallet"** button to link your account.
+
 ## 🛡️ Security Considerations
 - **Immutable Ledger:** Once a vote is cast on-chain, it cannot be tampered with by any entity, including administrators.
 - **Double-Voting Protection:** The `BlockVote` smart contract uses a mapping to track hashed voter identities, strictly enforcing a single vote per person.
