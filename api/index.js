@@ -12,12 +12,22 @@ app.use(cors());
 // Routes
 app.use('/api/auth', authRoutes);
 
-app.get('/api/health', (req, res) => {
-    res.status(200).json({ 
-        status: 'OK', 
-        message: 'BlockVote Backend is live on Vercel.',
-        dbStatus: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected'
-    });
+app.get('/api/health', async (req, res) => {
+    try {
+        await connectDB();
+        res.status(200).json({ 
+            status: 'OK', 
+            message: 'BlockVote Backend is live and connected to Database.',
+            dbStatus: 'Connected'
+        });
+    } catch (err) {
+        res.status(503).json({ 
+            status: 'Error',
+            message: 'Backend is live but Database is failing.',
+            error: err.message,
+            tip: 'Check your MONGO_URI password and ensure IP 0.0.0.0/0 is whitelisted in Atlas.'
+        });
+    }
 });
 
 // Database connection logic for serverless
