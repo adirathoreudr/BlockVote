@@ -16,8 +16,9 @@ export default function Register() {
       alert('Registration successful! Please check your email for the OTP.');
       navigate('/verify-otp', { state: { email } });
     } catch (err) {
-      console.error(err);
-      alert(err.response?.data?.message || 'Registration failed. User may already exist.');
+      console.error('Registration Error:', err);
+      const errorMsg = err.response?.data?.message || 'Server error. Please check your Vercel logs and MongoDB connection.';
+      alert(`Registration failed: ${errorMsg}`);
     } finally {
       setLoading(false);
     }
