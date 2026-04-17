@@ -2,31 +2,32 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleLogin = async (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
-      // Portable API endpoint for both local and Vercel environments
-      const res = await axios.post('/api/auth/login', { email, password });
-      if (res.data.token) {
-        localStorage.setItem('token', res.data.token);
-      }
-      navigate('/dashboard');
+      await axios.post('/api/auth/register', { email, password });
+      alert('Registration successful! Please check your email for the OTP.');
+      navigate('/verify-otp', { state: { email } });
     } catch (err) {
       console.error(err);
-      alert('Login failed. Please check your credentials or if the server is running.');
+      alert(err.response?.data?.message || 'Registration failed. User may already exist.');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <div className="auth-container">
       <div className="glass-panel">
-        <h2 style={{marginTop: 0}}>BlockVote Access</h2>
-        <form onSubmit={handleLogin}>
+        <h2 style={{marginTop: 0}}>Create Account</h2>
+        <form onSubmit={handleRegister}>
           <input 
             type="email" 
             placeholder="Email Address" 
@@ -41,10 +42,12 @@ export default function Login() {
             onChange={(e) => setPassword(e.target.value)} 
             required 
           />
-          <button type="submit">Verify & Sign In</button>
+          <button type="submit" disabled={loading}>
+            {loading ? 'Sending OTP...' : 'Register'}
+          </button>
         </form>
         <p style={{ marginTop: '20px', fontSize: '14px' }}>
-          New to BlockVote? <Link to="/register" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: 'bold' }}>Create an account</Link>
+          Already have an account? <Link to="/" style={{ color: '#3b82f6', textDecoration: 'none', fontWeight: 'bold' }}>Login</Link>
         </p>
       </div>
     </div>

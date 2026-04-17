@@ -6,5 +6,17 @@ Port 5173 is in use, trying another one...
 
   VITE v5.4.21  ready in 1202 ms
 
-  ➜  Local:   http://localhost:11:41:52 PM [vite] hmr update /src/components/Dashboard.jsx
-12:04:20 AM [vite] hmr update /src/components/Login.jsx
+  ➜  Local:   http://localhost:11:41:52 PM [vite] hmr update /src/componen12:10:46 AM [vite] page reload index.html
+12:10:46 AM [vite] vite.config.js changed, restarting server...
+12:10:47 AM [vite] server restarted.
+date /src/components/Login.jsx
+12:10:33 AM [vite] hmr update /src/App.jsx
+12:10:33 AM [vite] page reload src/main.jsx
+12:10:33 AM [vite] hmr update /src/components/Dashboard.jsx
+12:10:46 AM [vite] page reload index.html
+12:10:46 AM [vite] vite.config.js changed, restarting server...
+12:10:47 AM [vite] server restarted.
+12:54:07 AM [vite] hmr update /src/App.jsx
+12:54:18 AM [vite] hmr update /src/components/Login.jsx
+12:54:32 AM [vite] hmr update /src/components/Login.jsx
+12:54:39 AM [vite] hmr update /src/components/Login.jsx
