@@ -47,22 +47,33 @@ exports.register = async (req, res) => {
         }
         await user.save();
 
+        let emailSent = false;
         if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-            // Send email
-            await transporter.sendMail({
-                from: process.env.EMAIL_USER,
-                to: email,
-                subject: 'Block Vote - Verify your email',
-                text: `Your OTP is ${otp}`
-            });
+            try {
+                // Send email
+                await transporter.sendMail({
+                    from: process.env.EMAIL_USER,
+                    to: email,
+                    subject: 'Block Vote - Verify your email',
+                    text: `Your OTP is ${otp}`
+                });
+                emailSent = true;
+            } catch (mailError) {
+                console.error('Email Delivery Error:', mailError);
+            }
         } else {
             console.log(`[DEV MODE] OTP for ${email} is ${otp}`);
         }
 
-        res.status(201).json({ message: 'Registration successful. Please check your email for the OTP.' });
+        res.status(201).json({ 
+            message: emailSent 
+                ? 'Registration successful. Please check your email for the OTP.' 
+                : 'Registration successful! (Email Delivery skipped/failed). Use the OTP from server logs for testing.',
+            devOtp: (process.env.NODE_ENV !== 'production') ? otp : undefined 
+        });
     } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error' });
+        console.error('Registration Controller Error:', error);
+        res.status(500).json({ message: `Registration failed: ${error.message}` });
     }
 };
 
