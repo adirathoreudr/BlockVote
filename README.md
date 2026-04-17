@@ -2,8 +2,6 @@
 
 BlockVote is a secure, transparent, and decentralized voting platform built on the Ethereum blockchain. It combines the immutability of blockchain technology with a user-friendly off-chain authentication layer to ensure "one-person, one-vote" integrity while maintaining voter privacy and system scalability.
 
-## 🔗 Live Demo
-**View the project live on Vercel:** [https://block-vote-adirathore.vercel.app/](https://block-vote-adirathore.vercel.app/)
 
 ## 🚀 Key Features
 
