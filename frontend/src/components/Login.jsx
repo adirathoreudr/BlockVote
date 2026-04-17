@@ -17,8 +17,9 @@ export default function Login() {
       }
       navigate('/dashboard');
     } catch (err) {
-      console.error(err);
-      alert('Login failed. Please check your credentials or if the server is running.');
+      console.error('Login Error:', err);
+      const errorMsg = err.response?.data?.message || 'Server error. Please check your Vercel logs and MongoDB connection.';
+      alert(`Login failed: ${errorMsg}`);
     }
   };
 
