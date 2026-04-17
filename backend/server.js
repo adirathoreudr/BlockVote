@@ -21,11 +21,21 @@ app.get('/api/health', (req, res) => {
 // Database connection logic for serverless
 const connectDB = async () => {
     if (mongoose.connection.readyState >= 1) return;
+    
+    const uri = process.env.MONGO_URI;
+    if (!uri) {
+        throw new Error('MONGO_URI is not defined in environment variables');
+    }
+
     try {
-        await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/blockvote');
+        await mongoose.connect(uri, {
+            connectTimeoutMS: 5000,
+            serverSelectionTimeoutMS: 5000
+        });
         console.log('MongoDB connected successfully');
     } catch (err) {
         console.error('Database connection error:', err);
+        throw err; // Re-throw to be caught by middleware
     }
 };
 
