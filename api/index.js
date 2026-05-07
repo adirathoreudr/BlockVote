@@ -30,6 +30,20 @@ app.get('/api/health', async (req, res) => {
     }
 });
 
+// 404 Handler
+app.use((req, res) => {
+    res.status(404).json({ message: `Route ${req.originalUrl} not found` });
+});
+
+// Global Error Handler
+app.use((err, req, res, next) => {
+    console.error('Unhandled Error:', err.stack);
+    res.status(err.status || 500).json({
+        message: err.message || 'Internal Server Error',
+        error: process.env.NODE_ENV === 'development' ? err.stack : {}
+    });
+});
+
 // Database connection logic for serverless
 const connectDB = async () => {
     if (mongoose.connection.readyState >= 1) return;

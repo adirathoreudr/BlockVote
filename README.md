@@ -33,10 +33,17 @@ BlockVote is a secure, transparent, and decentralized voting platform built on t
 ## 📦 Project Structure
 
 ```text
-├── backend/            # Express.js API & MongoDB Models
+├── api/                # Vercel Serverless Functions
+├── backend/            # Express.js API & MongoDB Models (Local Development)
+│   ├── controllers/    # Route logic
+│   ├── models/         # Mongoose schemas
+│   ├── routes/         # API endpoints
+│   └── middleware/     # Auth & validation middleware
 ├── frontend/           # React.js UI (Vite)
+│   ├── src/            # Components, logic, styles
+│   └── public/         # Static assets
 ├── truffle-contracts/  # Solidity Smart Contracts & Truffle Tests
-├── Block_Vote_PRD.docx # detailed project requirements
+├── Block_Vote_PRD.docx # Detailed project requirements
 └── README.md           # Project documentation
 ```
 
@@ -95,6 +102,14 @@ To interact with the blockchain and cast your vote, follow these steps:
 - **Immutable Ledger:** Once a vote is cast on-chain, it cannot be tampered with by any entity, including administrators.
 - **Double-Voting Protection:** The `BlockVote` smart contract uses a mapping to track hashed voter identities, strictly enforcing a single vote per person.
 - **Administrative Control:** Crucial election phases (Opening/Closing) are restricted to the contract owner via the `onlyAdmin` modifier.
+
+## 🚀 Deployment
+
+### Deploying to Vercel
+1.  **Install Vercel CLI:** `npm i -g vercel`
+2.  **Login:** `vercel login`
+3.  **Deploy:** Run `vercel` in the root directory.
+4.  **Configure Environment Variables:** Add `MONGO_URI`, `JWT_SECRET`, `EMAIL_USER`, and `EMAIL_PASS` in the Vercel Dashboard.
 
 ## 📝 License
 Distributed under the MIT License. See `LICENSE` for more information.
